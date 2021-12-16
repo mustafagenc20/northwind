@@ -27,8 +27,4 @@ public class ProductsController {
         return this.productService.getAll();
     }
 
-    @PostMapping("/add")
-    public Result add(Product product){
-        return new Result(true,"Product added");
-    }
 }
