@@ -1,13 +1,11 @@
 package be.intecbrussel.northwind.api.controllers;
 
 import be.intecbrussel.northwind.business.abstacts.ProductService;
+import be.intecbrussel.northwind.core.utilities.results.DataResult;
 import be.intecbrussel.northwind.core.utilities.results.Result;
 import be.intecbrussel.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,8 +21,13 @@ public class ProductsController {
     }
 
     @GetMapping("/getall")
-    public List<Product> getAll(){
+    public DataResult<List<Product>> getAll(){
         return this.productService.getAll();
+    }
+
+    @PostMapping("/add")
+    public Result add(@RequestBody Product product){
+        return this.productService.add(product);
     }
 
 }
