@@ -1,6 +1,8 @@
 package be.intecbrussel.northwind.business.concretes;
 
 import be.intecbrussel.northwind.business.abstacts.ProductService;
+import be.intecbrussel.northwind.core.utilities.results.DataResult;
+import be.intecbrussel.northwind.core.utilities.results.SuccessDataResult;
 import be.intecbrussel.northwind.dataAccess.abstacts.ProductDao;
 import be.intecbrussel.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public List<Product> getAll() {
-        return this.productDao.findAll();
+    public DataResult<List<Product>> getAll() {
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(), "Data listed");
     }
 }
