@@ -35,17 +35,17 @@ public class ProductManager implements ProductService {
 
     @Override
     public DataResult<Product> getByProductName(String productName) {
-        return new SuccessDataResult<List<Product>>(this.productDao.findAll(), "Data listed");
+        return new SuccessDataResult<Product>(this.productDao.getByProductName(productName), "Data listed");
     }
 
     @Override
     public DataResult<Product> getByProductNameAndCategoryId(String productName, int categoryId) {
-        return null;
+        return new SuccessDataResult<Product>(this.productDao.getByProductNameAndCategoryId(productName, categoryId), "Data listed");
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId) {
-        return null;
+        return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameOrCategoryId(productName, categoryId), "Data listed");
     }
 
     @Override
