@@ -55,12 +55,12 @@ public class ProductManager implements ProductService {
 
     @Override
     public DataResult<List<Product>> getByProductNameContains(String productName) {
-        return null;
+        return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameContains(productName), "Data listed");
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameStartsWith(String productName) {
-        return null;
+        return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameStartsWith(productName), "Data listed");
     }
 
     @Override
