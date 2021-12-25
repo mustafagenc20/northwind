@@ -14,7 +14,7 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 
     List<Product> getByProductNameOrCategory(String productName, int categoryId);
 
-    List<Product> getByCategoryIdIn(List<Integer> categories);
+    List<Product> getByCategoryIn(List<Integer> categories);
 
     List<Product> getByProductNameContains(String productName);
 
