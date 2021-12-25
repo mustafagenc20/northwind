@@ -40,7 +40,7 @@ public class ProductManager implements ProductService {
 
     @Override
     public DataResult<Product> getByProductNameAndCategoryId(String productName, int categoryId) {
-        return new SuccessDataResult<Product>(this.productDao.getByProductNameAndCategoryId(productName, categoryId), "Data listed");
+        return new SuccessDataResult<Product>(this.productDao.getByProductNameAndCategory(productName, categoryId), "Data listed");
     }
 
     @Override
