@@ -1,5 +1,6 @@
 package be.intecbrussel.northwind.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "categories")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "products"})
 public class Category {
 
     @Id
