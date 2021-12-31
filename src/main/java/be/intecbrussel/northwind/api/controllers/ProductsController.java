@@ -45,5 +45,9 @@ public class ProductsController {
         return this.productService.getByProductNameContains(productName);
     }
 
+    @GetMapping("/getAllByPage")
+    DataResult<List<Product>> getAll(int pageNo, int pageSize){
+        return this.productService.getAll(pageNo, pageSize);
+    }
 
 }

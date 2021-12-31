@@ -8,6 +8,8 @@ import be.intecbrussel.northwind.core.utilities.results.SuccessResult;
 import be.intecbrussel.northwind.dataAccess.abstacts.ProductDao;
 import be.intecbrussel.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,12 @@ public class ProductManager implements ProductService {
     @Override
     public DataResult<List<Product>> getAll() {
         return new SuccessDataResult<List<Product>>(this.productDao.findAll(), "Data listed");
+    }
+
+    @Override
+    public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(pageable).getContent());
     }
 
     @Override
