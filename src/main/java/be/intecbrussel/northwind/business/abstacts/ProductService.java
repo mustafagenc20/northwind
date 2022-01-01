@@ -3,7 +3,8 @@ package be.intecbrussel.northwind.business.abstacts;
 import be.intecbrussel.northwind.core.utilities.results.DataResult;
 import be.intecbrussel.northwind.core.utilities.results.Result;
 import be.intecbrussel.northwind.entities.concretes.Product;
-import org.springframework.data.jpa.repository.Query;
+import be.intecbrussel.northwind.entities.dtos.ProductWithCategoryDto;
+
 
 import java.util.List;
 
@@ -30,4 +31,6 @@ public interface ProductService {
     DataResult<List<Product>> getByProductNameStartsWith(String productName);
 
     DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }
