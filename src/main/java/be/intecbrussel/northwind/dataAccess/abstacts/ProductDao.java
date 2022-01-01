@@ -1,6 +1,7 @@
 package be.intecbrussel.northwind.dataAccess.abstacts;
 
 import be.intecbrussel.northwind.entities.concretes.Product;
+import be.intecbrussel.northwind.entities.dtos.ProductWithCategoryDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -23,8 +24,8 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     @Query("From Product where productName=:productName and category.categoryId=:categoryId")
     List<Product> getByNameAndCategory(String productName, int categoryId);
 
-/*    @Query("Select new be.intecbrussel.northwind.entities.dtos.ProductWithCategoryDto"
+    @Query("Select new be.intecbrussel.northwind.entities.dtos.ProductWithCategoryDto"
             + "(p.id, p.productName, c.categoryName) "
             + "From Category c Inner Join c.products p")
-    List<ProductWithCategoryDto> getProductWithCategoryDetails();*/
+    List<ProductWithCategoryDto> getProductWithCategoryDetails();
 }
