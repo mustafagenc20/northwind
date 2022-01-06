@@ -93,7 +93,7 @@ public class ProductManager implements ProductService {
         return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameOrCategory_CategoryId(String productName));
     }
 
-    public DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId){
+    public DataResult<List<Product>> getByCategoryIdIn(String productName, int categoryId){
         return new SuccessDataResult<List<Product>>(this.productDao.getByProductNameOrCategory_CategoryId(String productName));
     }
 
